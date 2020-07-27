@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", e => {
     // Grab relevant HTML elements
     const postContainer = document.getElementById("postContainer");
 
-    // TODO insert previous posts into postContainer
+    // Insert previous posts into postContainer
+    
     
     // Upon submit, display user input on current page
     // How do you do this with a callback instead of an arrow function?
@@ -39,7 +40,6 @@ document.addEventListener("DOMContentLoaded", e => {
 
         // Creating post object to store user post
         let post = {title: postTitle, body: postBody, gifUrl: "#"}
-        console.log(post);
 
         let options = {
             method: 'POST',
@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", e => {
         .then(r => r.json())
         .catch(console.warn);
     });
+
+
 })
 
 
