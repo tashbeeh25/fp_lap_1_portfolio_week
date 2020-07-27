@@ -100,22 +100,22 @@ function displayEmoji() {
 // Character Count
 
 const titleCharacter = document.querySelector('.title-count');
+let postTitle = document.getElementById("postTitle");
 
 function countCharacters() {
     let maxLength = 100;
     let length = postTitle.value.length;
     // let remainingLength = maxLength - length;
     
-    if(length > maxLength) {
-        titleCharacter.textContent = `Exceeded character limit: ${length}/${maxLength}`
-    } else if (length < maxLength) {
+    // if(length > maxLength) {
+    //     titleCharacter.textContent = `Exceeded character limit: ${length}/${maxLength}`
+    if (length < maxLength) {
         titleCharacter.textContent = `Remaining Characters: ${length}/${maxLength}`
     } else {
         titleCharacter.textContent = `Max characters: ${maxLength}`
     }
 }
 
-let postTitle = document.getElementById("postTitle");
 postTitle.addEventListener('keydown', countCharacters);
 
 

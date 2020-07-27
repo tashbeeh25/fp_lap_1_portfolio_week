@@ -15,7 +15,7 @@ body {
 }
 
 #emojis {
-    /* visibility: hidden; */
+    visibility: hidden;
     display: flex;
     justify-content: center;
     margin: 30px;
