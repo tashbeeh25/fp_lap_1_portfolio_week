@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="index.css">
-    <script defer type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="index.js" defer></script>
     <title>Document</title>
 </head>
 <body id="body">
@@ -29,18 +29,28 @@
             <button id="Discard" name="Discard">Discard</button>
     </section>
 
+     <!-- Section for GIPHY toolbar -->
+     <section id="GIPHYToolbar">
+        <div id= "GIPHYButtonContainer">
+            <button id = "GIPHYButton" onclick="showGIPHY()">Add GIPHY GIF</button>
+        </div>
+        <div class="GIPHYSearchInputContainer">
+            <form id="GIPHYSearchForm">
+                <input id="GIPHYsearchInput" type="text" placeholder="Search for a gifs">
+                <div class="GIPHYSearchButtonContainer">
+                    <button id="GIPYSearchButton" type="submit">Search</button>
+                </div>
+            </form>
+            <div id="thumbs">
+
+            </div>
+        </div>
+    </section>
+
+
     <section id="postContainer">
 
     </section>
-
-    <!-- Section for GIPHY toolbar -->
-    <section id="GIPHYToolbar">
-
-
-
- 
-    </section>
-
     <!-- Footer with logo and address + links at bottom of page -->
     <footer>
         <!-- Links to our githubs and FP github -->
