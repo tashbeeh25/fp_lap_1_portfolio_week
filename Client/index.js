@@ -5,21 +5,19 @@
 
     // Insert previous posts into postContainer
 
-    // Declare a variable to store image from GIPHY search, this has to be done before the search takes place
-    let imgDiv = document.createElement("div");
     
-    // Start Add gif functionality //
+    // GIF FUNCTIONALITY START ------------------------------------------------------------------------------------------------------------------- // 
     const GIPHYForm = document.getElementById('GIPHYSearchForm')
     const GIPHY_KEY = 'BZM019G18oCCblfou5NgheomVPbrjKsK';
     
     // Displays search bar/button for GIPHY when clicked
     function showGIPHY() {
         let x = document.querySelector(".GIPHYSearchInputContainer");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
     }
     
     // Calls a fetch on GIPHY API and returns 6 images into div called "thumbs"
@@ -32,15 +30,15 @@
     // Appends clicked GIF to journal entry form
     function GIFClick(img){
          document.querySelector('#userInput').appendChild(img);
-         imgDiv.appendChild(img);
+         img.id = "postGIF";
+         let postGIF = document.getElementById("postGIF").src;
     }
     
-    // appends the six GIFs returned from search into a div to be selected
+    // Appends the six GIFs returned from search into a div to be selected
     function appendImage(giphy) { 
         const img = document.createElement('img'); 
         img.src = `${giphy}`; 
         img.className = "GIPHYResult";
-        //img.id = "selectedGIF";
         img.setAttribute('onclick','GIFClick(this)');
         document.getElementById('thumbs').appendChild(img);
     }  
@@ -59,9 +57,12 @@
         const searchTerm = document.getElementById('GIPHYsearchInput').value;
         giphySearch(searchTerm)  
     })
-    
+    // GIF FUNCTIONALITY END ------------------------------------------------------------------------------------------------------------------- //
+
+
+
+    // ADD NEW POST FUNCTIONALITY ------------------------------------------------------------------------------------------------------------------- //
     // Upon submit, display user input on current page
-    // How do you do this with a callback instead of an arrow function?
     document.addEventListener("submit", e => {
         e.preventDefault();
 
@@ -74,18 +75,24 @@
         let article = document.createElement("article");
         let articleHead = document.createElement("h2");
         let articleBody = document.createElement("p");
+        let articleGIF = document.createElement("img");
 
         // Populate elements
         articleHead.textContent = postTitle;
         articleBody.textContent = postBody;
+        articleGIF = postGIF;
 
-        // Append title and body to article
+        // Append title, body and image to article
         article.appendChild(articleHead);
         article.appendChild(articleBody);
-        article.appendChild(imgDiv);
+        article.appendChild(articleGIF);
         postContainer.appendChild(article);
     });
+    // ADD NEW POST FUNCTIONALITY END ------------------------------------------------------------------------------------------------------------------- //
 
+
+
+    // SEND TO SERVER FUNCTIONALITY START ------------------------------------------------------------------------------------------------------------------- //
     // Upon submit, send user input to server
     document.addEventListener("submit", e => {
         e.preventDefault();
@@ -108,7 +115,11 @@
         .then(r => r.json())
         .catch(console.warn);
     });
+    // SEND TO SERVER FUNCTIONALITY END ------------------------------------------------------------------------------------------------------------------- //
 
+
+
+    // DISCARD FUNCTIONALITY START ------------------------------------------------------------------------------------------------------------------- //
     const discard = document.getElementById("Discard")
     discard.addEventListener("click", e => {
         if (confirm("Are you sure you want to discard your post?")){
@@ -117,6 +128,7 @@
             // Do nothing
         }
     })
+    // DISCARD FUNCTIONALITY END ------------------------------------------------------------------------------------------------------------------- //
 
 //})
 
