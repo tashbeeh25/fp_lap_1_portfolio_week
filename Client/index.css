@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
 #postTitle {
     width: 300px !important;
     overflow: auto;
@@ -6,4 +12,45 @@
 #postBody {
     overflow: auto;
     width: 300px !important;
+}
+
+#emojis {
+    /* visibility: hidden; */
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+#laugh, #love, #cry{
+    width: 100%;
+}
+
+#laugh img, #love img, #cry img{
+    width: 9%;
+}
+
+.laugh-count, .love-count, .cry-count {
+    font-size: 16px;
+    position: relative;
+    top: -7px;
+    left: 15px;
+}
+
+#laugh img:hover, #love img:hover, #cry img:hover{
+    animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-10px);
+    }
+    40% {
+        transform: translateY(0px);
+    }
+    60% {
+        transform: translateY(-7px);
+    }
+    80% {
+        transform: translateY(0px);
+    }
 }
