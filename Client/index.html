@@ -4,38 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="index.css">
+    <script type="text/javascript" src="index.js" defer></script>
     <title>Document</title>
 </head>
-<body>
+<body id="body">
     <!-- Header with logo at top of page -->
     <header>
         <!-- Logo and title -->
     </header>
 
-    <!-- Section to contain form that takes user input -->
-    <section class="container">
+    <!-- Section to contain form and posts -->
+    <section id="formContainer">
         <!-- Form to take user input and submit-->
-        <form class="userInput">
+        <form id="userInput">
             <label for="postTitle">Add a title</label><br>
-            <textarea id="postTitle" name="postTitle" type="text" maxlength="300"></textarea>
+            <textarea id="postTitle" name="postTitle" type="text" maxlength="100"></textarea>
             <br>
             <label for="postBody">Add text to post</label><br>
             <!-- Maxlength subject to change based on group vote -->
-            <textarea id="postBody" name="postBody" maxlength="5000"></textarea>
+            <textarea id="postBody" name="postBody" maxlength="100"></textarea>
             <br>
             <input id="Post" name="Post" type="submit" value="Post">
-            <button id="Discard" name="Discard">Discard</button>
         </form>
+            <button id="Discard" name="Discard">Discard</button>
     </section>
 
+    <section id="postContainer">
+
+    </section>
 
     <!-- Section for GIPHY toolbar -->
     <section id="GIPHYToolbar">
-
-
-
-
-    </section>
+        <div id= "GIPHYButtonContainer">
+            <button id = "GIPHYButton" onclick="showGIPHY()">Add GIPHY GIF</button>
+        </div>
+        <div class="GIPHYSearchInputContainer">
+            <form id="GIPHYSearchForm">
+            <input id="GIPHYsearchInput" type="text" placeholder="Search for a gifs">
+        
+        <div class="GIPHYSearchButtonContainer">
+            <button id="GIPYSearchButton" type="submit">Search</button>
+        </div>
+        </form>
+        <div id="thumbs">
+        </div>
+        </div>
 
     <!-- Footer with logo and address + links at bottom of page -->
     <footer>
