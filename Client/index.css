@@ -7,3 +7,22 @@
     overflow: auto;
     width: 300px !important;
 }
+
+#GIPHYButtonContainer {
+    width: 300px;
+    background-color: black;
+}
+
+.GIPHYSearchInputContainer {
+    display: none;
+}
+
+
+#thumbs {
+    width: 600px;
+}
+
+.GIPHYResult {
+    width: 200px;
+    height: 200px;
+}
