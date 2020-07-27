@@ -4,7 +4,9 @@
     const postContainer = document.getElementById("postContainer");
 
     // Insert previous posts into postContainer
-    let article = document.createElement("article");
+
+    // Declare a variable to store image from GIPHY search, this has to be done before the search takes place
+    let imgDiv = document.createElement("div");
     
     // Start Add gif functionality //
     const GIPHYForm = document.getElementById('GIPHYSearchForm')
@@ -30,7 +32,7 @@
     // Appends clicked GIF to journal entry form
     function GIFClick(img){
          document.querySelector('#userInput').appendChild(img);
-         //article.appendChild(img);
+         imgDiv.appendChild(img);
     }
     
     // appends the six GIFs returned from search into a div to be selected
@@ -69,6 +71,7 @@
         let postBody = document.getElementById("postBody").value;
 
         // Update page with new post - create article, h2, and p tags for new post
+        let article = document.createElement("article");
         let articleHead = document.createElement("h2");
         let articleBody = document.createElement("p");
 
@@ -79,6 +82,7 @@
         // Append title and body to article
         article.appendChild(articleHead);
         article.appendChild(articleBody);
+        article.appendChild(imgDiv);
         postContainer.appendChild(article);
     });
 
@@ -105,16 +109,14 @@
         .catch(console.warn);
     });
 
-    // const discard = document.getElementById("Discard")
-    // document.addEventListener("click", e => {
-    //     e.preventDefault();
-
-    //     let postTitle = document.getElementById("postTitle").value;
-    //     let postBody = document.getElementById("postBody").value;
-        
-    //     postTitle = "";
-    //     postBody = "";
-    // })
+    const discard = document.getElementById("Discard")
+    discard.addEventListener("click", e => {
+        if (confirm("Are you sure you want to discard your post?")){
+            window.location.reload();
+        } else {
+            // Do nothing
+        }
+    })
 
 //})
 
