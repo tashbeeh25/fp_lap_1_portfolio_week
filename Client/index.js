@@ -30,6 +30,8 @@
     // Appends clicked GIF to journal entry form
     function GIFClick(img){
          document.querySelector('#userInput').appendChild(img);
+         img.id = "postGIF";
+         let postGIF = document.getElementById("postGIF").src;
          //article.appendChild(img);
     }
     
@@ -38,7 +40,6 @@
         const img = document.createElement('img'); 
         img.src = `${giphy}`; 
         img.className = "GIPHYResult";
-        //img.id = "selectedGIF";
         img.setAttribute('onclick','GIFClick(this)');
         document.getElementById('thumbs').appendChild(img);
     }  
@@ -67,18 +68,22 @@
         // Ensure you use .value to access the input the user makes
         let postTitle = document.getElementById("postTitle").value;
         let postBody = document.getElementById("postBody").value;
+        
 
         // Update page with new post - create article, h2, and p tags for new post
         let articleHead = document.createElement("h2");
         let articleBody = document.createElement("p");
+        let articleGIF = document.createElement("img");
 
         // Populate elements
         articleHead.textContent = postTitle;
         articleBody.textContent = postBody;
+        articleGIF = postGIF;
 
         // Append title and body to article
         article.appendChild(articleHead);
         article.appendChild(articleBody);
+        article.appendChild(articleGIF);
         postContainer.appendChild(article);
     });
 
