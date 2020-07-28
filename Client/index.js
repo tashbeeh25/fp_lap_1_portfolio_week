@@ -114,6 +114,8 @@
         fetch('http://localhost:3000/posts', options)
         .then(r => r.json())
         .catch(console.warn);
+
+        displayEmoji()
     });
     // SEND TO SERVER FUNCTIONALITY END ------------------------------------------------------------------------------------------------------------------- //
 
@@ -132,6 +134,64 @@
 
 //})
 
+const laugh = document.querySelector('#laugh');
+const love = document.querySelector('#love');
+const cry = document.querySelector('#cry');
+
+let laughCount = 0;
+let loveCount = 0;
+let cryCount = 0;
+
+const accumulateLaughCounts = () => {
+    laughCount++;
+    const totalCounts = document.querySelector('.laugh-count');
+    totalCounts.textContent = laughCount; 
+}
+
+const accumulateLoveCounts = () => {
+    loveCount++;
+    const totalCounts = document.querySelector('.love-count');
+    totalCounts.textContent = loveCount; 
+}
+
+const accumulateCryCounts = () => {
+    cryCount++;
+    const totalCounts = document.querySelector('.cry-count');
+    totalCounts.textContent = cryCount; 
+}
+
+love.addEventListener('click', accumulateLoveCounts);
+laugh.addEventListener('click', accumulateLaughCounts);
+cry.addEventListener('click', accumulateCryCounts);
+
+
+function displayEmoji() {
+    document.querySelector('#emojis').style.visibility = "visible"
+};
+
+// Character Count
+
+const titleCharacter = document.querySelector('.title-count');
+let postTitle = document.getElementById("postTitle");
+
+function countCharacters() {
+    let maxLength = 100;
+    let length = postTitle.value.length;
+    // let remainingLength = maxLength - length;
+    
+    // if(length > maxLength) {
+    //     titleCharacter.textContent = `Exceeded character limit: ${length}/${maxLength}`
+    if (length < maxLength) {
+        titleCharacter.textContent = `Remaining Characters: ${length}/${maxLength}`
+    } else {
+        titleCharacter.textContent = `Max characters: ${maxLength}`
+    }
+}
+
+postTitle.addEventListener('keydown', countCharacters);
+
+
+// Add gif functionality
 
 // Add emoji functonality
 
